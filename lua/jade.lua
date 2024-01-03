@@ -10,7 +10,8 @@ local palette = {
     turquoise = { name = 'turquoise', hex = '#8abec7' },
     orange = { name = 'orange', hex = '#d7875f' },
     gray = { name = 'gray', hex = '#949494' },
-    dark_gray = { name = 'dark_gray', hex = '#7f7f7f' },
+    light_gray = { name = 'light_gray', hex = '#7f7f7f' },
+    lighter_gray = { name = 'lighter_gray', hex = '#6f6e6f' },
     brick = { name = 'brick', hex = '#875f5f' }
 }
 
@@ -28,27 +29,27 @@ Group.new('Special', c.turquoise:light(), c.none, s.none)
 Group.new('String', c.green, c.none, s.none)
 Group.new('Search', c.white, c.none, s.reverse)
 Group.new('IncSearch', c.none, c.none, s.reverse)
-Group.new('MatchParen', c.none, c.turquoise, s.none)
+Group.new('MatchParen', c.none, c.none, s.none)
 Group.new('Type', c.turquoise:light(), c.none, s.none)
 Group.new('TypeDef', c.turquoise, c.none, s.none)
 Group.new('Pmenu', c.white, c.background, s.none)
 Group.new('PmenuSel', c.white:light(), c.gray:dark(), s.bold)
-Group.new('PmenuThumb', c.orange, c.background, s.none)
+-- Group.new('PmenuThumb',                  c.orange,            c.background,          s.none)
 Group.new('Operator', c.white, c.background, s.none)
-Group.new('Visual', c.none, c.gray:dark(), s.none)
+Group.new('Visual', c.none, c.light_gray:dark(), s.none)
 Group.new('Conditional', c.yellow, c.background, s.bold)
 Group.new('Macro', c.orange:light(), nil, s.none)
 
-Group.new('Title', c.blue, c.none, s.none)
+Group.new('Title', c.blue:light(), c.none, s.bold)
 Group.new('URI', c.blue, c.none, s.undercurl)
 Group.new('LineNr', c.gray, c.none, s.none)
-Group.new('Header', c.white, c.none, s.none)
 Group.new('Normal', c.white, c.none, s.none)
 Group.new('Noise', c.white:dark(), c.none, s.none)
 Group.new('NonText', c.gray:light(), c.none, s.none)
 Group.new('NotNormal', c.turquoise, c.none, s.none)
 Group.new('CursorLineNr', c.yellow, nil, s.none)
-Group.new('ColorCol', nil, c.dark_gray:dark(), s.none)
+Group.new('ColorCol', nil, c.light_gray:dark(), s.none)
+Group.new('CursorCol', nil, c.lighter_gray:dark(), s.none)
 Group.new('Builtin', c.turquoise, c.none, s.none)
 
 
@@ -64,20 +65,20 @@ Group.link('ColorColumn', g.ColorCol)
 Group.link('PreProc', g.Macro)
 
 
-Group.link('helpHeader', g.Header)
+Group.link('helpHeader', g.Normal)
 Group.link('helpHeadline', g.Title)
 Group.link('helpHyperTextEntry', g.Normal)
 Group.link('helpIgnore', g.NonText)
 Group.link('helpOption', g.String)
 Group.link('helpSectionDelim', g.Noise)
 
-Group.new('DiffAdd', c.none, c.dark_gray, s.bold)
-Group.new('DiffAdded', c.none, c.dark_gray, s.bold)
+Group.new('DiffAdd', c.none, c.light_gray, s.bold)
+Group.new('DiffAdded', c.none, c.light_gray, s.bold)
 Group.new('DiffChange', c.yellow:light(), c.none, s.italic)
-Group.new('DiffDelete', c.brick, c.none, s.none)
-Group.new('DiffLine', c.background:dark(), c.dark_gray:dark(), s.underline)
-Group.new('DiffRemoved', c.brick, c.none, s.none)
-Group.new('DiffText', c.White, c.none, s.none)
+Group.new('DiffDelete', c.none, c.brick, s.none)
+Group.new('DiffLine', c.background:dark(), c.light_gray:dark(), s.underline)
+Group.new('DiffRemoved', c.none, c.brick, s.none)
+Group.new('DiffText', c.white, c.none, s.none)
 
 Group.link('ErrorMsg', g.Error)
 Group.link('ModeMsg', g.Normal)
@@ -87,5 +88,5 @@ Group.link('@function.builtin', g.Builtin)
 Group.link('@namespace', g.NotNormal)
 Group.link('Whitespace', g.NonText)
 Group.link('NvimInternalError', g.Error)
-Group.link('FloatBorder', g.NonText) -- light gray
-Group.link("Include", g.Noise)       --imports and stuff
+Group.link('FloatBorder', g.NonText)
+Group.link("Include", g.Noise) --imports and stuff

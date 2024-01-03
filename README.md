@@ -4,7 +4,7 @@ Yet another colorscheme.
 Built using [colorbuddy](https://github.com/tjdevries/colorbuddy.nvim)
 and took some inspiration from [catcusbuddy](https://github.com/redbug312/cactusbuddy).
 
-> [!Warn]
+> [!Info]
 > 
 > This is highly personalised on most of the files I work with, so it may not 
 fit your prefered taste which is fine.
@@ -18,7 +18,8 @@ fit your prefered taste which is fine.
 
 use = {"musaubrian/jade.nvim", requires = "tjdevries/colorbuddy.nvim"}
 
-require('colorbuddy').colorscheme('cactusbuddy')
+require("jade")
+
 ```
 
 2. Lazy
