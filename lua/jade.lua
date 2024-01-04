@@ -1,22 +1,22 @@
 local Color, c, Group, g, s = require('colorbuddy').setup()
 
 local palette = {
-    background = { name = 'background', hex = '#181818' },
-    white = { name = 'white', hex = '#ffffff' },
-    green = { name = 'green', hex = '#99cc99' },
-    yellow = { name = 'yellow', hex = '#f0c674' },
-    blue = { name = 'blue', hex = '#81a2be' },
-    sky_blue = { name = 'sky_blue', hex = '#7bdaf7' },
-    turquoise = { name = 'turquoise', hex = '#8abec7' },
-    orange = { name = 'orange', hex = '#d7875f' },
-    gray = { name = 'gray', hex = '#949494' },
-    light_gray = { name = 'light_gray', hex = '#7f7f7f' },
-    lighter_gray = { name = 'lighter_gray', hex = '#6f6e6f' },
-    brick = { name = 'brick', hex = '#875f5f' }
+    background = { name = 'background', code = '#181818' },
+    white = { name = 'white', code = '#ffffff' },
+    green = { name = 'green', code = '#99cc99' },
+    yellow = { name = 'yellow', code = '#f0c674' },
+    blue = { name = 'blue', code = '#81a2be' },
+    sky_blue = { name = 'sky_blue', code = '#7bdaf7' },
+    turquoise = { name = 'turquoise', code = '#8abec7' },
+    orange = { name = 'orange', code = '#d7875f' },
+    gray = { name = 'gray', code = '#949494' },
+    light_gray = { name = 'light_gray', code = '#7f7f7f' },
+    lighter_gray = { name = 'lighter_gray', code = '#6f6e6f' },
+    brick = { name = 'brick', code = '#875f5f' }
 }
 
 for _, value in pairs(palette) do
-    Color.new(value.name, value.hex)
+    Color.new(value.name, value.code)
 end
 
 
