@@ -55,7 +55,7 @@ Group.new('CursorLineNr', c.yellow, nil, s.none)
 Group.new('ColorCol', nil, c.light_gray:dark(), s.none)
 Group.new('CursorCol', nil, c.lighter_gray:dark(), s.none)
 Group.new('Builtin', c.turquoise, c.none, s.none)
-Group.new('StatusLine', c.white:dark(), c.black, s.none)
+Group.new('StatusLine', c.black:light(), c.blue, s.none)
 
 
 Group.link('EndOfBuffer', g.NonText)
