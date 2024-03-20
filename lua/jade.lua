@@ -1,7 +1,13 @@
-local Color, c, Group, g, s = require('colorbuddy').setup()
+local colorbuddy = require("colorbuddy")
+colorbuddy.colorscheme("jade")
+
+local Color = colorbuddy.Color
+local color = colorbuddy.colors
+local Group = colorbuddy.Group
+local group = colorbuddy.groups
+local style = colorbuddy.styles
 
 local palette = {
-    aqua = { name = 'aqua', code = '#8ec07c' },
     black = { name = 'black', code = '#181818' },
     white = { name = 'white', code = '#ffffff' },
     seagreen = { name = "seagreen", code = '#698b69' },
@@ -10,7 +16,6 @@ local palette = {
     blue = { name = 'blue', code = '#81a2be' },
     sky_blue = { name = 'sky_blue', code = '#7bdaf7' },
     turquoise = { name = 'turquoise', code = '#8abec7' },
-    cyan = { name = 'cyan', code = '#8abeb7' },
     orange = { name = 'orange', code = '#d7875f' },
     red = { name = 'red', code = '#cc6666' },
     gray = { name = 'gray', code = '#949494' },
@@ -24,73 +29,79 @@ for _, value in pairs(palette) do
 end
 
 
-Group.new('Function', c.sky_blue:light(), c.none, s.none)
-Group.new('Keyword', c.white, c.none, s.bold)
-Group.new('Error', c.red, c.none, s.italic)
-Group.new('Warning', c.orange, c.none, s.italic)
-Group.new("Hint", c.blue, c.none, s.none)
-Group.new('Special', c.turquoise:light(), c.none, s.none)
-Group.new('String', c.green, c.none, s.none)
-Group.new('Search', c.white, c.none, s.reverse)
-Group.new('IncSearch', c.none, c.none, s.reverse)
-Group.new('MatchParen', c.none, c.none, s.none)
-Group.new('Type', c.turquoise:light(), c.none, s.none)
-Group.new('TypeDef', c.turquoise, c.none, s.none)
-Group.new('Pmenu', c.white, c.none, s.none)
-Group.new('PmenuSel', c.white:light(), c.gray:dark(), s.bold)
-Group.new('PmenuThumb', c.orange, c.black, s.none)
-Group.new('Operator', c.white, c.none, s.none)
-Group.new('Visual', c.none, c.light_gray:dark(), s.none)
-Group.new('Conditional', c.yellow, c.none, s.bold)
-Group.new('Macro', c.orange:light(), c.none, s.none)
+Group.new('Function', color.sky_blue:light(), color.none, style.none)
+Group.new('Keyword', color.white, color.none, style.bold)
+Group.new('Error', color.red, color.none, style.italic)
+Group.new('Warning', color.orange, color.none, style.italic)
+Group.new("Hint", color.blue, color.none, style.none)
+Group.new('Special', color.turquoise:light(), color.none, style.none)
+Group.new('String', color.green, color.none, style.none)
+Group.new('Search', color.white, color.none, style.reverse)
+Group.new('IncSearch', color.none, color.none, style.reverse)
+Group.new('MatchParen', color.none, color.none, style.none)
+Group.new('Type', color.turquoise:light(), color.none, style.none)
+Group.new('TypeDef', color.turquoise, color.none, style.none)
+Group.new('Pmenu', color.white, color.none, style.none)
+Group.new('PmenuSel', color.white:light(), color.gray:dark(), style.bold)
+Group.new('PmenuThumb', color.orange, color.black, style.none)
+Group.new('Operator', color.white, color.none, style.none)
+Group.new('Visual', color.none, color.light_gray:dark(), style.none)
+Group.new('Conditional', color.yellow, color.none, style.bold)
+Group.new('Macro', color.orange:light(), color.none, style.none)
 
-Group.new('Title', c.blue:light(), c.none, s.bold)
-Group.new('URI', c.blue, c.none, s.undercurl)
-Group.new('LineNr', c.gray, c.none, s.none)
-Group.new('Normal', c.white, c.none, s.none)
-Group.new('Noise', c.white:dark(), c.none, s.none)
-Group.new('NonText', c.gray:light(), nil, s.none)
-Group.new('NotNormal', c.turquoise, c.none, s.none)
-Group.new('CursorLineNr', c.yellow, nil, s.none)
-Group.new('ColorCol', nil, c.light_gray:dark(), s.none)
-Group.new('CursorCol', nil, c.lighter_gray:dark(), s.none)
-Group.new('Builtin', c.turquoise, c.none, s.none)
-
-
-Group.link('EndOfBuffer', g.NonText)
-Group.link('Delimiter', g.NotNormal)
-Group.link('Identifier', g.Normal)
-Group.link('Statement', g.NotNormal)
-Group.link('SignColumn', g.LineNr)
-Group.link('FoldColumn', g.LineNr)
-Group.link('Folded', g.NonText)
-Group.link('Comment', g.NonText)
-Group.link('ColorColumn', g.ColorCol)
-Group.link('PreProc', g.Macro)
+Group.new('Title', color.blue:light(), color.none, style.bold)
+Group.new('URI', color.blue, color.none, style.undercurl)
+Group.new('LineNr', color.gray, color.none, style.none)
+Group.new('Normal', color.white, color.none, style.none)
+Group.new('Noise', color.white:dark(), color.none, style.none)
+Group.new('NonText', color.gray:light(), nil, style.none)
+Group.new('NotNormal', color.turquoise, color.none, style.none)
+Group.new('CursorLineNr', color.yellow, nil, style.none)
+Group.new('ColorCol', nil, color.light_gray:dark(), style.none)
+Group.new('CursorCol', nil, color.lighter_gray:dark(), style.none)
+Group.new('Builtin', color.turquoise, color.none, style.none)
+Group.new('NetrwDir', color.turquoise, color.none, style.bold)
+Group.new("NormalFloat", color.none, color.none, style.none)
+Group.new("Number", color.orange, color.none, style.bold)
 
 
-Group.link('helpHeader', g.Normal)
-Group.link('helpHeadline', g.Title)
-Group.link('helpHyperTextEntry', g.Normal)
-Group.link('helpIgnore', g.NonText)
-Group.link('helpOption', g.String)
-Group.link('helpSectionDelim', g.Noise)
+Group.link('EndOfBuffer', group.NonText)
+Group.link('Delimiter', group.NotNormal)
+Group.link('Identifier', group.Normal)
+Group.link('Statement', group.NotNormal)
+Group.link('SignColumn', group.LineNr)
+Group.link('FoldColumn', group.LineNr)
+Group.link('Folded', group.NonText)
+Group.link('Comment', group.NonText)
+Group.link('ColorColumn', group.ColorCol)
+Group.link('PreProc', group.Macro)
 
-Group.new('DiffAdd', c.none, c.light_gray, s.bold)
-Group.new('DiffAdded', c.none, c.light_gray, s.bold)
-Group.new('DiffChange', c.yellow:light(), c.none, s.italic)
-Group.new('DiffDelete', c.none, c.brick, s.none)
-Group.new('DiffLine', c.black:dark(), c.light_gray:dark(), s.underline)
-Group.new('DiffRemoved', c.none, c.brick, s.none)
-Group.new('DiffText', c.white, c.none, s.none)
 
-Group.link('ErrorMsg', g.Error)
-Group.link('ModeMsg', g.Normal)
-Group.link('CursorLineNr', g.CursorLineNr)
-Group.link('@string.docstring', g.Comment)
-Group.link('@function.builtin', g.Builtin)
-Group.link('@namespace', g.NotNormal)
-Group.link('Whitespace', g.NonText)
-Group.link('NvimInternalError', g.Error)
-Group.link('FloatBorder', g.NonText)
-Group.link("Include", g.Noise) --imports and stuff
+Group.link('helpHeader', group.Normal)
+Group.link('helpHeadline', group.Title)
+Group.link('helpHyperTextEntry', group.Normal)
+Group.link('helpIgnore', group.NonText)
+Group.link('helpOption', group.String)
+Group.link('helpSectionDelim', group.Noise)
+
+Group.new('DiffAdd', color.none, color.light_gray, style.bold)
+Group.new('DiffAdded', color.none, color.light_gray, style.bold)
+Group.new('DiffChange', color.yellow:light(), color.none, style.italic)
+Group.new('DiffDelete', color.none, color.brick, style.none)
+Group.new('DiffLine', color.black:dark(), color.light_gray:dark(), style.underline)
+Group.new('DiffRemoved', color.none, color.brick, style.none)
+Group.new('DiffText', color.white, color.none, style.none)
+
+Group.link('ErrorMsg', group.Error)
+Group.link('ModeMsg', group.Normal)
+Group.link('CursorLineNr', group.CursorLineNr)
+Group.link('@string.docstring', group.Comment)
+Group.link('@function.builtin', group.Builtin)
+Group.link('@namespace', group.NotNormal)
+Group.link('Whitespace', group.NonText)
+Group.link('NvimInternalError', group.Error)
+Group.link('FloatBorder', group.NonText)
+Group.link("Include", group.Noise)           --imports and stuff
+Group.link("NetrwDir", group.NetrwDir)
+Group.link("NormalFloat", group.NormalFloat) --remove bg from floating windows
+Group.link("Number", group.Number)
