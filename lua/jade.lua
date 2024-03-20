@@ -7,7 +7,9 @@ local Group = colorbuddy.Group
 local group = colorbuddy.groups
 local style = colorbuddy.styles
 
+
 local palette = {
+    cyan = { name = 'cyan', code = '#8abeb7' },
     black = { name = 'black', code = '#181818' },
     white = { name = 'white', code = '#ffffff' },
     seagreen = { name = "seagreen", code = '#698b69' },
@@ -48,6 +50,8 @@ Group.new('Operator', color.white, color.none, style.none)
 Group.new('Visual', color.none, color.light_gray:dark(), style.none)
 Group.new('Conditional', color.yellow, color.none, style.bold)
 Group.new('Macro', color.orange:light(), color.none, style.none)
+Group.new("Define", color.yellow:light(), color.none, style.italic)
+Group.new("Structure", color.blue:light(), color.none, style.italic)
 
 Group.new('Title', color.blue:light(), color.none, style.bold)
 Group.new('URI', color.blue, color.none, style.undercurl)
@@ -63,6 +67,7 @@ Group.new('Builtin', color.turquoise, color.none, style.none)
 Group.new('NetrwDir', color.turquoise, color.none, style.bold)
 Group.new("NormalFloat", color.none, color.none, style.none)
 Group.new("Number", color.orange, color.none, style.bold)
+Group.new("SpecialChar", color.cyan, color.none, style.italic)
 
 
 Group.link('EndOfBuffer', group.NonText)
@@ -105,3 +110,6 @@ Group.link("Include", group.Noise)           --imports and stuff
 Group.link("NetrwDir", group.NetrwDir)
 Group.link("NormalFloat", group.NormalFloat) --remove bg from floating windows
 Group.link("Number", group.Number)
+Group.link("SpecialChar", group.SpecialChar)
+Group.link("Define", group.Define)
+Group.link("Structure", group.Structure)
