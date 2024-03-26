@@ -50,7 +50,7 @@ Group.new('Operator', color.white, color.none, style.none)
 Group.new('Visual', color.none, color.light_gray:dark(), style.none)
 Group.new('Conditional', color.yellow, color.none, style.bold)
 Group.new('Macro', color.orange:light(), color.none, style.none)
-Group.new("Define", color.yellow:light(), color.none, style.italic)
+Group.new("Define", color.orange:light():light(), color.none, style.italic)
 Group.new("Structure", color.blue:light(), color.none, style.italic)
 
 Group.new('Title', color.blue:light(), color.none, style.bold)
@@ -66,7 +66,7 @@ Group.new('CursorCol', nil, color.lighter_gray:dark(), style.none)
 Group.new('Builtin', color.turquoise, color.none, style.none)
 Group.new('NetrwDir', color.turquoise, color.none, style.bold)
 Group.new("NormalFloat", color.none, color.none, style.none)
-Group.new("Number", color.orange, color.none, style.bold)
+Group.new("Number", color.yellow, color.none, style.bold)
 Group.new("SpecialChar", color.cyan, color.none, style.italic)
 
 
