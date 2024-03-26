@@ -12,7 +12,6 @@ local palette = {
     cyan = { name = 'cyan', code = '#8abeb7' },
     black = { name = 'black', code = '#181818' },
     white = { name = 'white', code = '#ffffff' },
-    seagreen = { name = "seagreen", code = '#698b69' },
     green = { name = 'green', code = '#99cc99' },
     yellow = { name = 'yellow', code = '#f0c674' },
     blue = { name = 'blue', code = '#81a2be' },
