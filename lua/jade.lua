@@ -1,4 +1,4 @@
-local colorbuddy = require("colorbuddy")
+local colorbuddy = require("colorbuddy.init")
 colorbuddy.colorscheme("jade")
 
 local Color = colorbuddy.Color
@@ -8,24 +8,24 @@ local group = colorbuddy.groups
 local style = colorbuddy.styles
 
 local palette = {
-	cyan = { name = "cyan", code = "#8abeb7" },
-	dark = { name = "black", code = "#171717" },
-	white = { name = "white", code = "#ffffff" },
-	green = { name = "green", code = "#99cc99" },
-	yellow = { name = "yellow", code = "#f0c674" },
-	blue = { name = "blue", code = "#81a2be" },
-	sky_blue = { name = "sky_blue", code = "#7bdaf7" },
-	turquoise = { name = "turquoise", code = "#8abec7" },
-	orange = { name = "orange", code = "#d7875f" },
-	red = { name = "red", code = "#cc6666" },
-	gray = { name = "gray", code = "#949494" },
-	light_gray = { name = "light_gray", code = "#7f7f7f" },
-	lighter_gray = { name = "lighter_gray", code = "#6f6e6f" },
-	brick = { name = "brick", code = "#875f5f" },
+	cyan = "#8abeb7",
+	dark = "#171717",
+	white = "#ffffff",
+	green = "#99cc99",
+	yellow = "#f0c674",
+	blue = "#81a2be",
+	sky_blue = "#7bdaf7",
+	turquoise = "#8abec7",
+	orange = "#d7875f",
+	red = "#cc6666",
+	gray = "#949494",
+	light_gray = "#7f7f7f",
+	lighter_gray = "#6f6e6f",
+	brick = "#875f5f",
 }
 
-for _, value in pairs(palette) do
-	Color.new(value.name, value.code)
+for k, value in pairs(palette) do
+	Color.new(k, value)
 end
 
 Group.new("Function", color.sky_blue:light(), color.none, style.none)
@@ -49,16 +49,17 @@ Group.new("Conditional", color.yellow, color.none, style.bold)
 Group.new("Macro", color.orange:light(), color.none, style.none)
 Group.new("Define", color.orange:light():light(), color.none, style.italic)
 Group.new("Structure", color.blue:light(), color.none, style.italic)
+Group.new("Mute", color.dark:light(), color.none, style.none)
 
 Group.new("Title", color.blue:light(), color.none, style.bold)
-Group.new("URI", color.blue, color.none, style.undercurl)
+Group.new("URI", color.none, color.none, style.none)
 Group.new("LineNr", color.gray, color.none, style.none)
 Group.new("Normal", color.white, color.black, style.none)
 Group.new("Noise", color.white:dark(), color.none, style.none)
-Group.new("NonText", color.gray:light(), nil, style.none)
+Group.new("NonText", color.gray:light(), nil, style.italic)
 Group.new("NotNormal", color.turquoise, color.none, style.none)
 Group.new("CursorLineNr", color.yellow, nil, style.none)
-Group.new("ColorCol", nil, color.light_gray:dark(), style.none)
+Group.new("ColorCol", nil, color.dark:light(), style.none)
 Group.new("CursorCol", nil, color.lighter_gray:dark(), style.none)
 Group.new("Builtin", color.turquoise, color.none, style.none)
 Group.new("NetrwDir", color.turquoise, color.none, style.bold)
@@ -66,11 +67,26 @@ Group.new("NormalFloat", color.none, color.none, style.none)
 Group.new("Number", color.yellow, color.none, style.bold)
 Group.new("SpecialChar", color.cyan, color.none, style.italic)
 
-Group.link("EndOfBuffer", group.NonText)
+Group.new("VueTag", color.orange:light(), color.none, style.bold)
+Group.new("VueSecondaryTag", color.blue:light(), color.none, style.italic)
+Group.new("TSMember", color.blue:light():light(), color.none, style.none) -- VAL.<target>
+Group.new("MDmeta", color.orange:dark():light():light(), color.none, style.none)
+Group.new("MDlabel", color.turquoise:light(), color.none, style.bold)
+Group.new("MDlink", color.lighter_gray:light(), color.none, style.italic)
+
+Group.new("DiffAdd", color.none, color.light_gray, style.bold)
+Group.new("DiffAdded", color.none, color.light_gray, style.bold)
+Group.new("DiffChange", color.yellow:light(), color.none, style.italic)
+Group.new("DiffDelete", color.none, color.brick, style.none)
+Group.new("DiffLine", color.black:dark(), color.light_gray:dark(), style.underline)
+Group.new("DiffRemoved", color.none, color.brick, style.none)
+Group.new("DiffText", color.white, color.none, style.none)
+
+Group.link("EndOfBuffer", group.Mute)
 Group.link("Delimiter", group.NotNormal)
 Group.link("Identifier", group.Normal)
 Group.link("Statement", group.NotNormal)
-Group.link("SignColumn", group.LineNr)
+Group.link("SignColumn", group.Mute)
 Group.link("FoldColumn", group.LineNr)
 Group.link("Folded", group.NonText)
 Group.link("Comment", group.NonText)
@@ -83,14 +99,6 @@ Group.link("helpHyperTextEntry", group.Normal)
 Group.link("helpIgnore", group.NonText)
 Group.link("helpOption", group.String)
 Group.link("helpSectionDelim", group.Noise)
-
-Group.new("DiffAdd", color.none, color.light_gray, style.bold)
-Group.new("DiffAdded", color.none, color.light_gray, style.bold)
-Group.new("DiffChange", color.yellow:light(), color.none, style.italic)
-Group.new("DiffDelete", color.none, color.brick, style.none)
-Group.new("DiffLine", color.black:dark(), color.light_gray:dark(), style.underline)
-Group.new("DiffRemoved", color.none, color.brick, style.none)
-Group.new("DiffText", color.white, color.none, style.none)
 
 Group.link("ErrorMsg", group.Error)
 Group.link("ModeMsg", group.Normal)
@@ -108,3 +116,12 @@ Group.link("Number", group.Number)
 Group.link("SpecialChar", group.SpecialChar)
 Group.link("Define", group.Define)
 Group.link("Structure", group.Structure)
+Group.link("Conceal", group.NonText)
+Group.link("@tag.vue", group.VueTag)
+Group.link("@tag.attribute.vue", group.VueSecondaryTag)
+Group.link("@variable.member.vue", group.VueSecondaryTag) -- :<attribute>
+Group.link("@variable.member.typescript", group.TSMember)
+Group.link("@keyword.directive.markdown", group.MDmeta)
+Group.link("@markup.link.label.markdown_inline", group.MDlabel)
+Group.link("@markup.link.markdown_inline", group.URI)
+Group.link("@markup.link.url.markdown_inline", group.MDlink)
