@@ -10,9 +10,7 @@ and took some inspiration from [catcusbuddy](https://github.com/redbug312/cactus
 ```lua
 
 use = {"musaubrian/jade.nvim", requires = "tjdevries/colorbuddy.nvim"}
-
-require("jade")
-
+require("jade").setup({})
 ```
 
 2. Lazy
@@ -21,9 +19,8 @@ require("jade")
   {
     'musaubrian/jade.nvim',
     dependencies = "tjdevries/colorbuddy.nvim",
-    config = function()
-      require("jade")
-    end
+    lazy=false,
+    opts = { }
   },
 ```
 
