@@ -29,6 +29,8 @@ function M.setup_colorscheme()
 		light_gray = "#7f7f7f",
 		lighter_gray = "#6f6e6f",
 		brick = "#875f5f",
+		ml_bg = "#2e2e2e",
+		ml_git_branch = "#d9d9d9",
 	}
 
 	for k, value in pairs(palette) do
@@ -91,6 +93,11 @@ function M.setup_colorscheme()
 	Group.new("DiffRemoved", color.none, color.brick, style.none)
 	Group.new("DiffText", color.white, color.none, style.none)
 
+	Group.new("MinLineMode", color.blue, color.ml_bg, style.bold)
+	Group.new("MinLineGitBranch", color.ml_git_branch, color.ml_bg, style.bold)
+	Group.new("MinLinePrimaryText", color.white, color.ml_bg, style.bold)
+	Group.new("MinLineSecondaryText", color.white:light(), color.ml_bg, style.none)
+
 	Group.link("EndOfBuffer", group.Mute)
 	Group.link("Delimiter", group.NotNormal)
 	Group.link("Identifier", group.Normal)
@@ -118,7 +125,7 @@ function M.setup_colorscheme()
 	Group.link("Whitespace", group.NonText)
 	Group.link("NvimInternalError", group.Error)
 	Group.link("FloatBorder", group.NonText)
-	Group.link("Include", group.Noise)        --imports and stuff
+	Group.link("Include", group.Noise) --imports and stuff
 	Group.link("NetrwDir", group.NetrwDir)
 	Group.link("NormalFloat", group.NormalFloat) --remove bg from floating windows
 	Group.link("Number", group.Number)
