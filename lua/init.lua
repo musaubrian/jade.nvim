@@ -98,6 +98,8 @@ function M.setup_colorscheme()
 	Group.new("MinLinePrimaryText", color.white, color.ml_bg, style.bold)
 	Group.new("MinLineSecondaryText", color.white:light(), color.ml_bg, style.none)
 
+	Group.new("Deprecated", color.brick, color.none, style.italic)
+
 	Group.link("EndOfBuffer", group.Mute)
 	Group.link("Delimiter", group.NotNormal)
 	Group.link("Identifier", group.Normal)
@@ -141,6 +143,12 @@ function M.setup_colorscheme()
 	Group.link("@markup.link.label.markdown_inline", group.MDlabel)
 	Group.link("@markup.link.markdown_inline", group.URI)
 	Group.link("@markup.link.url.markdown_inline", group.MDlink)
+
+	Group.link("BlinkCmpMenu", group.Pmenu)
+	Group.link("BlinkCmpMenuBorder", group.Pmenu)
+	Group.link("BlinkCmpMenuSelection", group.PmenuSel)
+	Group.link("BlinkCmpScrollBarThumb", group.PmenuThumb)
+	Group.link("BlinkCmpLabelDeprecated", group.Deprecated)
 end
 
 return M
