@@ -3,7 +3,15 @@ colorbuddy.colorscheme("jade")
 
 local M = {}
 
-function M.setup()
+---@class Config
+---@field no_bg boolean
+M.config = {
+	no_bg = false,
+}
+
+---@param opts Config
+function M.setup(opts)
+	M.config = opts
 	M.setup_colorscheme()
 end
 
@@ -60,7 +68,11 @@ function M.setup_colorscheme()
 	Group.new("Structure", color.blue:light(), color.none, style.italic)
 	Group.new("Mute", color.dark:light(), color.none, style.none)
 
-	Group.new("Normal", color.white, color.dark, style.none)
+	if M.config.no_bg then
+		Group.new("Normal", color.white, color.none, style.none)
+	else
+		Group.new("Normal", color.white, color.dark, style.none)
+	end
 
 	Group.new("Title", color.blue:light(), color.none, style.bold)
 	Group.new("URI", color.none, color.none, style.none)
