@@ -25,7 +25,7 @@ function M.setup_colorscheme()
 	local palette = {
 		cyan = "#8abeb7",
 		dark = "#171717",
-		white = "#ffffff",
+		white = "#fefefe",
 		green = "#99cc99",
 		yellow = "#f0c674",
 		blue = "#81a2be",
