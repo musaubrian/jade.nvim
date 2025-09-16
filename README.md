@@ -1,3 +1,7 @@
+> [!NOTE]
+> May no longer maintain this as its integrated in my config
+> using the inbuilt `vim.api.nvim_set_hl(...)`
+
 # jade.nvim
 
 Yet another colorscheme.
